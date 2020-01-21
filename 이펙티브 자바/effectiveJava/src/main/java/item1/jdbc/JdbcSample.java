@@ -1,6 +1,9 @@
 package item1.jdbc;
 
+import com.mysql.cj.jdbc.Driver;
+
 import java.sql.*;
+
 public class JdbcSample {
 
     public static void main(String[] args) throws SQLException {
