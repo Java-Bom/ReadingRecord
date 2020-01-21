@@ -1,6 +1,6 @@
 package item1.constructor;
 
-public class Foo implements SingletonFoo {
+public class Foo {
 
     private final FooRepository fooRepository;
 
