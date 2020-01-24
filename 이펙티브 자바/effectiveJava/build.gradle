@@ -14,5 +14,12 @@ repositories {
 dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.12'
     compile group: 'mysql', name: 'mysql-connector-java', version: '8.0.18'
+    testImplementation('org.junit.jupiter:junit-jupiter-api:5.2.0')
 
+    testCompile group: 'org.assertj', name: 'assertj-core', version: '3.6.1'
+
+}
+
+test {
+    useJUnitPlatform()
 }
