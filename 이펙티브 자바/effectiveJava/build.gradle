@@ -17,6 +17,7 @@ dependencies {
     testImplementation('org.junit.jupiter:junit-jupiter-api:5.2.0')
 
     testCompile group: 'org.assertj', name: 'assertj-core', version: '3.6.1'
+    compile group: 'org.projectlombok', name: 'lombok', version: '1.18.8'
 
 }
 

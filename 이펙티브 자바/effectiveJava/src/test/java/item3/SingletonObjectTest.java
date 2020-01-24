@@ -33,7 +33,7 @@ public class SingletonObjectTest {
                 System.out.println(">>>>>> call ReadObject ");
                 Object objectMember = ois.readObject();
                 SingletonObject singletonObject1 = (SingletonObject) objectMember;
-                Assert.assertSame(singletonObject1, singletonObject);
+                assertSame(singletonObject1, singletonObject);
 //                System.out.println(singletonObject1);
             }
         }
