@@ -150,7 +150,7 @@ class MyIntegerTest {
 }
 ```
 
-<img src="https://user-images.githubusercontent.com/13347548/74021010-1a3d1700-49de-11ea-9527-77e753710133.png" alt="image" style="zoom:50%;" />![image](https://user-images.githubusercontent.com/13347548/74019608-473bfa80-49db-11ea-8e69-b11bd25d97eb.png)
+<img src="https://user-images.githubusercontent.com/13347548/74021010-1a3d1700-49de-11ea-9527-77e753710133.png" alt="image" style="zoom:50%;" />
 
 - 기존 클래스를 확장한 구체 클래스에 새로운 값 컴포넌트를 추가했다면 compareTo 규약을 지킬 방법이 없다.
   - 구체 클래스에서 Comparable의 제네릭 타입을 Point로 구현하려면 불필요한 타입 캐스팅이 필요해지는데 이는 잘못된 구현이다.
@@ -277,7 +277,7 @@ class ColorPoint implements Comparable<ColorPoint> {
 ```
 
 ```java
-		@DisplayName("구체 클래스인 Point 의 일반 규약을 지킬 수 있다.")
+    @DisplayName("구체 클래스인 Point 의 일반 규약을 지킬 수 있다.")
     @Test
     void test() {
         Point point = new Point(1, 3);
