@@ -21,7 +21,7 @@ x 가 y보다 작은 경우 -1을, 같을 경우 0을, 클 경우 1을 반환한
 - 두 번째 규약,  
   `x.compareTo(y) < 0` 이고 `y.compareTo(z) < 0` 이라면 `x.compareTo(z) < 0` 이다.  
   삼단 논법과 같다.
-- 세 번재 규약,  
+- 세 번째 규약,  
   크기가 같은 객체들끼리는 어떤 객체와 비교하더라도 항상 같아야한다.  
   `x.compareTo(y) == 0` 으로 인해 동치가 두 객체의 크기가 같다면,  
   `x.compareTo(z)` 와 `y.compareTo(z)` 는 같아야한다.
@@ -40,10 +40,10 @@ compareTo의 일반 규약을 지키지 않고 구현한 클래스를 Collection
 1. 정렬된 컬렉션 TreeSet, TreeMap  
    정렬된 컬렉션의 경우 동치성 비교를 compareTo로 한다.
 
-![image](https://user-images.githubusercontent.com/13347548/73896128-4e70e480-48c5-11ea-9a1b-04aaeb1d4fd4.png)  
+<img src="https://user-images.githubusercontent.com/13347548/73896128-4e70e480-48c5-11ea-9a1b-04aaeb1d4fd4.png" alt="image" style="zoom:40%;" />  
 HashSet에서는 equals로 한다.
 
-![image](https://user-images.githubusercontent.com/13347548/73896044-f2a65b80-48c4-11ea-93c4-f48083546fa8.png)  
+<img src="https://user-images.githubusercontent.com/13347548/73896044-f2a65b80-48c4-11ea-93c4-f48083546fa8.png" alt="image" style="zoom:50%;" />  
 TreeSet에서는 compare로 한다.
 
 ```java
@@ -77,7 +77,7 @@ TreeSet에서는 compare로 한다.
     }
 ```
 
-![image](https://user-images.githubusercontent.com/13347548/74020873-cdf1d700-49dd-11ea-8b72-4575985802e6.png)
+<img src="https://user-images.githubusercontent.com/13347548/74020873-cdf1d700-49dd-11ea-8b72-4575985802e6.png" alt="image" style="zoom:50%;" />
 
 2. 정렬 알고리즘을 사용하는 Collections, Arrays
 
@@ -150,7 +150,7 @@ class MyIntegerTest {
 }
 ```
 
-![image](https://user-images.githubusercontent.com/13347548/74021010-1a3d1700-49de-11ea-9527-77e753710133.png)
+<img src="https://user-images.githubusercontent.com/13347548/74021010-1a3d1700-49de-11ea-9527-77e753710133.png" alt="image" style="zoom:50%;" />![image](https://user-images.githubusercontent.com/13347548/74019608-473bfa80-49db-11ea-8e69-b11bd25d97eb.png)
 
 - 기존 클래스를 확장한 구체 클래스에 새로운 값 컴포넌트를 추가했다면 compareTo 규약을 지킬 방법이 없다.
   - 구체 클래스에서 Comparable의 제네릭 타입을 Point로 구현하려면 불필요한 타입 캐스팅이 필요해지는데 이는 잘못된 구현이다.
@@ -225,7 +225,7 @@ class ColorPoint extends Point implements Comparable<Point> {
     }
 ```
 
-![image](https://user-images.githubusercontent.com/13347548/74019608-473bfa80-49db-11ea-8e69-b11bd25d97eb.png)
+<img src="https://user-images.githubusercontent.com/13347548/74025913-5aa19280-49e8-11ea-89c4-24b952d7cea1.png" alt="image" style="zoom:50%;" />
 
 - 상속을 이용하지 않고 기반 클래스를 멤버변수로 바꾸고 view 메서드를 제공한다면 기반 클래스인 Point의 compareTo의 일반 규약을 지킬 수 있다.
 
@@ -288,7 +288,7 @@ class ColorPoint implements Comparable<ColorPoint> {
     }
 ```
 
-![image](https://user-images.githubusercontent.com/13347548/74020677-6a67a980-49dd-11ea-9dc2-d1bbda175882.png)
+<img src="https://user-images.githubusercontent.com/13347548/74020677-6a67a980-49dd-11ea-9dc2-d1bbda175882.png" alt="image" style="zoom:50%;" />
 
 - ColorPoint에서 멤버변수를 Point로 들고 있는 것과 같이 멤버 변수가 참조 필드일 경우 해당 객체의 compareTo를 **재귀호출** 하도록 하자.
   - `point.compareTo(colorPoint.point)`
@@ -418,5 +418,4 @@ public class HashObject implements Comparable<HashObject> {
     }
 ```
 
-![image](https://user-images.githubusercontent.com/13347548/74025163-afdca480-49e6-11ea-9eab-ee56bee6aa0e.png)
-
+<img src="https://user-images.githubusercontent.com/13347548/74025163-afdca480-49e6-11ea-9eab-ee56bee6aa0e.png" alt="image" style="zoom:50%;" />
