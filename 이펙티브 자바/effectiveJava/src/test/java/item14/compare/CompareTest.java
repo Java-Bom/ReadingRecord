@@ -3,6 +3,8 @@ package item14.compare;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Set;
 import java.util.TreeSet;
 
@@ -36,6 +38,24 @@ class CompareTest {
         assertThat(getNameAfterConvert(sortedArray[3])).isEqualTo("유성");
         assertThat(getNameAfterConvert(sortedArray[4])).isEqualTo("찬인");
     }
+
+    @Test
+    @DisplayName("treeSet과 HashSet 동치성 검사")
+    void name2() {
+        Set<Person> treeSet = new TreeSet<>();
+        treeSet.add(new Person(28,"찬인"));
+        treeSet.add(new Person(28,"유성"));
+
+        assertThat(treeSet.size()).isEqualTo(2);
+
+        Set<Person> hashSet = new HashSet<>();
+        hashSet.add(new Person(28,"찬인"));
+        hashSet.add(new Person(28,"유성"));
+
+        assertThat(hashSet.size()).isEqualTo(1);
+
+    }
+
 
     public String getNameAfterConvert(Object o) {
         return ((Person) o).getName();
