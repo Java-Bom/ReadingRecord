@@ -267,7 +267,7 @@ class ColorPoint implements Comparable<ColorPoint> {
 
     @Override
     public int compareTo(ColorPoint colorPoint) {
-        int result = point.compareTo(point);
+        int result = point.compareTo(colorPoint.point);
         if (result == 0) {
             return Integer.compare(color, colorPoint.color);
         }
