@@ -16,10 +16,10 @@ public class SingletonObject implements Serializable {
         System.out.println(">>>>> Constructor Call");
     }
 
-    public Object readResolve(){
-        System.out.println(">>>>>>>> ReadResolve Method Call");
-        return this.INSTANCE;
-    }
+//    public Object readResolve(){
+//        System.out.println(">>>>>>>> ReadResolve Method Call");
+//        return this.INSTANCE;
+//    }
 
     @Override
     public String toString() {
@@ -28,3 +28,5 @@ public class SingletonObject implements Serializable {
                 '}';
     }
 }
+
+
