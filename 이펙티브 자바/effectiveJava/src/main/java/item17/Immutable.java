@@ -3,6 +3,7 @@ package item17;
 import java.math.BigInteger;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Properties;
 
 /**
  * Created by jyami on 2020/02/20
@@ -10,12 +11,10 @@ import java.util.List;
 public class Immutable {
     public void testBigInteger(){
         BigInteger bigInteger = new BigInteger("123445");
-        bigInteger.abs();
+        BigInteger negate = bigInteger.negate();
     }
 
-
-    public List<String> makeUpperCWithFunctional(List<String> list){
-
+    public List<String> makeUpperCWithProcedural(List<String> list){
         // 기존방식 (절차적 프로그래밍)
         for(int i=0; i<list.size(); i++){
             String s = list.get(i);
@@ -26,7 +25,7 @@ public class Immutable {
         return list;
     }
 
-    public List<String> makeUpperCWithProcedural(List<String> list){
+    public List<String> makeUpperCWithFunctional(List<String> list){
         // stream API를 이용한 방식 (함수형 프로그래밍)
         list.stream()
                 .filter(s -> s.startsWith("c"))

@@ -20,6 +20,9 @@ dependencies {
     compile group: 'org.projectlombok', name: 'lombok', version: '1.18.8'
     annotationProcessor("org.projectlombok:lombok")
     testAnnotationProcessor("org.projectlombok:lombok")
+
+    compile group: 'org.json', name: 'json', version: '20190722'
+
 }
 
 test {
