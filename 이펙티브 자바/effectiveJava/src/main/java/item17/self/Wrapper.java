@@ -7,13 +7,17 @@ package item17.self;
 class Wrapper implements SomethingWithCallback {
 
     private final WrappedObject wrappedObject;
+    public static Wrapper wrapper; // 모든게 접근할 수 있음. // 내부 객체들만 접근하고 싶게는 못함.
+    public Wrapper wrapperThis;
 
     Wrapper(WrappedObject wrappedObject) {
         this.wrappedObject = wrappedObject;
+        this.wrapperThis = this;
     }
 
     @Override
     public void doSomething() {
+        wrapper = this;
         wrappedObject.doSomething();
     }
 

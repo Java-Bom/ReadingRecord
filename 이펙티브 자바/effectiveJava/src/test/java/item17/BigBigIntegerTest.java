@@ -17,5 +17,6 @@ class BigBigIntegerTest {
     void unReliableMethod() {
         BigInteger bigInteger = new BigBigInteger("1234");
         assertThat(bigInteger.getClass()).isNotEqualTo(BigInteger.class);
+        assertThat(bigInteger.getClass()).isEqualTo(BigBigInteger.class);
     }
 }

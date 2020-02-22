@@ -9,6 +9,7 @@ final class SomeService {
         new Thread(() -> {
             perform();
             callback.call();
+            Wrapper.wrapper.call();
         }).start();
     }
 
@@ -20,6 +21,7 @@ final class SomeService {
         SomeService   service       = new SomeService();
         WrappedObject wrappedObject = new WrappedObject(service);
         Wrapper       wrapper       = new Wrapper(wrappedObject);
+
         wrapper.doSomething();
     }
 }
