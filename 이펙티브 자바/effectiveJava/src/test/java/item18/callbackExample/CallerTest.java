@@ -1,5 +1,7 @@
 package item18.callbackExample;
 
+import org.junit.jupiter.api.Test;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 /**
@@ -7,4 +9,9 @@ import static org.junit.jupiter.api.Assertions.*;
  */
 class CallerTest {
 
+    @Test
+    void callerTest() {
+        Caller caller = new Caller();
+        caller.getCallee().getCallback().callbackMethod();
+    }
 }
