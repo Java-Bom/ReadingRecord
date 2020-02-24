@@ -1,4 +1,4 @@
-package item17.self;
+package item18;
 
 /**
  * Created by jyami on 2020/02/22
