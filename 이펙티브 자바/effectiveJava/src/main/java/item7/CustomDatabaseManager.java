@@ -4,8 +4,6 @@ import item7.vo.DBConnection;
 import item7.vo.ResultSet;
 import lombok.Getter;
 
-import java.util.WeakHashMap;
-
 @Getter
 public class CustomDatabaseManager implements DatabaseManager {
 
@@ -30,3 +28,4 @@ public class CustomDatabaseManager implements DatabaseManager {
     }
 
 }
+

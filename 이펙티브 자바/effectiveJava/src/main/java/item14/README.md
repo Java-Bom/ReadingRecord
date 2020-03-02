@@ -1,6 +1,6 @@
 # 아이템[14] - Comparable을 구현할지 고려하라
 
-Comaparable을 구현하면 compareTo를 재정의 하여 제네릭 알고리즘과 통해 손쉽게 컬렉션을 정렬할 수 있다.  
+Comaparable을 구현하면 compareTo를 재정의 하여 손쉽게 컬렉션을 정렬할 수 있다.  
 따라서 알파벳, 숫자, 연대와 같이 순서가 명확한 클래스를 작성한다면 반드시 Comparable을 구현하도록 하자.
 
 > Comparable은 compareTo만 가지고 있어 Functional Interface로 착각할 수 있지만 그렇지 않다.  
@@ -267,7 +267,7 @@ class ColorPoint implements Comparable<ColorPoint> {
 
     @Override
     public int compareTo(ColorPoint colorPoint) {
-        int result = point.compareTo(point);
+        int result = point.compareTo(colorPoint.point);
         if (result == 0) {
             return Integer.compare(color, colorPoint.color);
         }

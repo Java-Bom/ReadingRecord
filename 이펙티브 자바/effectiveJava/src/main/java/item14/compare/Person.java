@@ -1,13 +1,13 @@
 package item14.compare;
 
 import lombok.AllArgsConstructor;
-import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.ToString;
 
+import java.util.Objects;
+
 @Getter
 @ToString
-@EqualsAndHashCode
 @AllArgsConstructor
 public class Person implements Comparable<Person> {
 
@@ -17,6 +17,19 @@ public class Person implements Comparable<Person> {
     public void foo() {
         Person a = new Person(1, "a");
 
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Person person = (Person) o;
+        return Objects.equals(age, person.age);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(age);
     }
 
     @Override

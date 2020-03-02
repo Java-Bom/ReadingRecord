@@ -5,3 +5,4 @@ import item7.vo.ResultSet;
 public interface DatabaseManager {
     ResultSet execute(final String query);
 }
+
