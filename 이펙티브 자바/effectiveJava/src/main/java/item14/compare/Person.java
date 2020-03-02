@@ -14,6 +14,11 @@ public class Person implements Comparable<Person> {
     private Integer age;
     private String name;
 
+    public void foo() {
+        Person a = new Person(1, "a");
+
+    }
+
     @Override
     public int compareTo(Person o) {
         int result = Integer.compare(age, o.age);
