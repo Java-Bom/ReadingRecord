@@ -23,6 +23,9 @@ dependencies {
 
     compile group: 'org.json', name: 'json', version: '20190722'
 
+
+    // https://mvnrepository.com/artifact/org.apache.commons/commons-collections4
+    compile group: 'org.apache.commons', name: 'commons-collections4', version: '4.4'
 }
 
 test {

@@ -6,8 +6,8 @@ package item18.self;
 
 class Wrapper implements SomethingWithCallback {
 
-    private final WrappedObject wrappedObject;
     public static Wrapper wrapper; // 모든게 접근할 수 있음. // 내부 객체들만 접근하고 싶게는 못함.
+    private final WrappedObject wrappedObject;
     public Wrapper wrapperThis;
 
     Wrapper(WrappedObject wrappedObject) {

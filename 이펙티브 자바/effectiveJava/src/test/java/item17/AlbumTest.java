@@ -1,10 +1,8 @@
 package item17;
 
-import lombok.AllArgsConstructor;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.AssertionsForInterfaceTypes.assertThat;
-import static org.junit.jupiter.api.Assertions.*;
 
 /**
  * Created by jyami on 2020/02/22

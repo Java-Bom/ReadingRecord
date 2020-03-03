@@ -5,7 +5,11 @@ import org.junit.jupiter.api.Test;
 import java.io.FileReader;
 import java.io.IOException;
 import java.math.BigInteger;
-import java.util.*;
+import java.util.Arrays;
+import java.util.BitSet;
+import java.util.List;
+import java.util.Properties;
+import java.util.Stack;
 
 import static org.assertj.core.api.AssertionsForInterfaceTypes.assertThat;
 
@@ -37,7 +41,7 @@ class ImmutableTest {
         Object hello1 = properties.get("hello"); // Properties의 상위클래스인 HashTable에서 물려받음
         properties.load(new FileReader("src/test/resources/input.txt"));
 
-        int hello2 =Integer.parseInt((String)properties.get("hello"));
+        int hello2 = Integer.parseInt((String) properties.get("hello"));
         properties.put("hello", hello2);
 
     }

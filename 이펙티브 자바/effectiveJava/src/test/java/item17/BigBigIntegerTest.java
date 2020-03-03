@@ -4,9 +4,7 @@ import org.junit.jupiter.api.Test;
 
 import java.math.BigInteger;
 
-
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
-import static org.junit.jupiter.api.Assertions.*;
 
 /**
  * Created by jyami on 2020/02/22

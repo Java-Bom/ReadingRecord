@@ -6,12 +6,12 @@ package item17;
 public class Album {
     private final Title title;
 
-    public Title getTitle() {
-        return title;
-    }
-
     public Album(String title) {
         this.title = new Title(title);
+    }
+
+    public Title getTitle() {
+        return title;
     }
 
     static class Title {

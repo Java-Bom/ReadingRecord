@@ -19,13 +19,14 @@ public class InstrumentedSet<E> extends ForwardingSet<E> {
         return super.add(e);
     }
 
-    @Override public boolean addAll (Collection< ? extends E > c){
+    @Override
+    public boolean addAll(Collection<? extends E> c) {
         addCount += c.size();
         return super.addAll(c);
 
     }
 
-    public int getAddCount () {
+    public int getAddCount() {
         return addCount;
     }
 }

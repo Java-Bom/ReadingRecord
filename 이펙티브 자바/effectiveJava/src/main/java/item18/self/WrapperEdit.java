@@ -10,7 +10,7 @@ public class WrapperEdit {
         this.wrappedObject = wrappedObject;
     }
 
-    public void doSmething(){
+    public void doSmething() {
         wrappedObject.doSomething();
     }
 

@@ -6,9 +6,9 @@ public class SingletonObject implements Serializable {
 
     private static final SingletonObject INSTANCE = new SingletonObject();
     //    transient public static final SingletonObject INSTANCE = new SingletonObject();
-    private String name ="I'm Singleton Object";
+    private String name = "I'm Singleton Object";
 
-    public static SingletonObject getInstance(){
+    public static SingletonObject getInstance() {
         return INSTANCE;
     }
 

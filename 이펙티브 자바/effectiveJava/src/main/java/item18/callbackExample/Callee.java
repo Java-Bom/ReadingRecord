@@ -9,14 +9,14 @@ import lombok.Getter;
 @Getter
 public class Callee {
 
-    interface CallBack{
-        void callbackMethod();
-    }
-
     private CallBack callback;
 
     public Callee(CallBack callback) {
         this.callback = callback;
+    }
+
+    interface CallBack {
+        void callbackMethod();
     }
 
 }

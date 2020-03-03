@@ -13,22 +13,22 @@ class Client {
         products = new ArrayList<>();
     }
 
-    public Shopper getShopper(){
+    public Shopper getShopper() {
         return new Shopper();
     }
 
-    public void buyProduct(Product product){
-        if(balance < product.cost){
+    public void buyProduct(Product product) {
+        if (balance < product.cost) {
             throw new IllegalArgumentException();
         }
         balance -= product.cost;
         products.add(product);
     }
 
-    class Shopper{
+    class Shopper {
         public String name = "shopper";
 
-        public void hello(){
+        public void hello() {
 
         }
 

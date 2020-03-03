@@ -5,6 +5,14 @@ package item18.self;
  */
 final class SomeService {
 
+    public static void main(String[] args) {
+        SomeService service = new SomeService();
+        WrappedObject wrappedObject = new WrappedObject(service);
+        Wrapper wrapper = new Wrapper(wrappedObject);
+
+        wrapper.doSomething();
+    }
+
     void performAsync(SomethingWithCallback callback) {
         new Thread(() -> {
             perform();
@@ -15,13 +23,5 @@ final class SomeService {
 
     void perform() {
         System.out.println("Service is being performed.");
-    }
-
-    public static void main(String[] args) {
-        SomeService   service       = new SomeService();
-        WrappedObject wrappedObject = new WrappedObject(service);
-        Wrapper       wrapper       = new Wrapper(wrappedObject);
-
-        wrapper.doSomething();
     }
 }

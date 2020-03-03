@@ -1,6 +1,5 @@
 package item15;
 
-import item1.constructor.Foo;
 import lombok.Getter;
 
 import java.io.Serializable;

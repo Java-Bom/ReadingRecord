@@ -9,7 +9,7 @@ public class Point implements Comparable<Point> {
         this.y = y;
     }
 
-    public void move(Integer x, Integer y){
+    public void move(Integer x, Integer y) {
         this.x = x;
         this.y = y;
     }
