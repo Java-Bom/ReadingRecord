@@ -8,7 +8,6 @@ function minus(x, callback) {
     callback(sum);
 }
 
-<<<<<<< HEAD
 const Rectangle = class {
     constructor(height, width) {
         this.height = height;
@@ -26,14 +25,6 @@ add(3, function(result){
     console.log(this);
     var self = this;
     setTimeout(function(){
-=======
-add(3, function (result) {
-    console.log("=========add1");
-    console.log(this);
-    var self = this;
-
-    setTimeout(function () {
->>>>>>> 5dcb59de08ac20fa64163ef9c8ad4b6c3d687e1b
 
         console.log("---------------this"+this);
         console.log();
@@ -41,12 +32,7 @@ add(3, function (result) {
         console.log("---------------setTimeout self");
         console.log(self);
 
-<<<<<<< HEAD
     },200);
-=======
-    }, 200);
-
->>>>>>> 5dcb59de08ac20fa64163ef9c8ad4b6c3d687e1b
 });
 
 
