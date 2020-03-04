@@ -20,10 +20,11 @@ const Rectangle = class {
     }
 };
 
+
 add(3, function(result){
     console.log("=========add1");
     console.log(this);
-    var self = this;
+    const self = this;
     setTimeout(function(){
 
         console.log("---------------this"+this);
@@ -34,6 +35,9 @@ add(3, function(result){
 
     },200);
 });
+
+
+
 
 
 minus(3, function () {
