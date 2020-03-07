@@ -7,27 +7,45 @@ interface Operator {
 }
 
 public class AnonymousExample {
-    private double x;
-    private double y;
+    double x;
+    double y;
 
     public AnonymousExample(double x, double y) {
         this.x = x;
         this.y = y;
     }
 
-    public double plus() {
+    //정적인 구문
+    public static void staticMethod() {
+        Operator operator = new Operator() {
+            private static final String foo = "foo";
+
+            //            private static String cant = "cant";
+            @Override
+            public double plus() {
+//                return x;
+                return 0;
+            }
+
+            @Override
+            public double minus() {
+                return 0;
+            }
+        };
+    }
+
+    //비 정적인 구문 멤버변수의 참조가 가능
+    public double nonStaticMethod() {
         Operator operator = new Operator() {
             private static final String foo = "foo";
 
             @Override
             public double plus() {
-                System.out.printf("%f + %f = %f\n", x, y, x + y);
                 return x + y;
             }
 
             @Override
             public double minus() {
-                System.out.printf("%f - %f = %f\n", x, y, x - y);
                 return x - y;
             }
         };
