@@ -9,7 +9,7 @@ class CallerTest {
 
     @Test
     void callerTest() {
-        Caller caller = new Caller();
-        caller.getCallee().getCallback().callbackMethod();
+//        Caller caller = new Caller();
+//        caller.getCallee().getCallback().callbackMethod();
     }
 }
