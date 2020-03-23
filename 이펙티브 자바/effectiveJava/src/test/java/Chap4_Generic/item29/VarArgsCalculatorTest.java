@@ -1,4 +1,4 @@
-package Chat4_Generic.generic;
+package Chap4_Generic.item29;
 
 import org.junit.jupiter.api.Test;
 
