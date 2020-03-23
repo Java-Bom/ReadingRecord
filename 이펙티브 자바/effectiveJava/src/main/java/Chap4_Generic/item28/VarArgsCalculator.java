@@ -11,7 +11,7 @@ public class VarArgsCalculator {
     }
 
     @SafeVarargs
-    public static <E> int sum(E... source) {
+    public static <E> int sumGeneric(E... source) {
         return 1;
     }
 }
