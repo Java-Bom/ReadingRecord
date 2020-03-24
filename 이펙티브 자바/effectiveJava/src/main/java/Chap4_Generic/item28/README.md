@@ -11,8 +11,6 @@
    
    </br>
    </br>
-   </br>
-
    #### 로타입은 뭐든지 다 들어간다.
    ----------------------------
   <pre>
@@ -63,62 +61,59 @@
    **ClassCastException**이 떨어질 것이다.      
    </br>
    </br>
-    </br>
    
-   
-   
-   #### 로타입이 쓰고 싶을땐 어떻게 하지?
-   -------------------------------
+#### 로타입이 쓰고 싶을땐 어떻게 하지?
+-------------------------------
  분명 로타입을 사용하고 싶은 요구사항도 있을 것이다.  
  로타입의 두 Set끼리 비교하여 같은것이 몇개 포함되었는지 비교하는 함수를 만든다면, 그 함수는 어떤 매개변수를 가지던지 상관하지 않고 싶을 것이다.
           
-    <pre>
-        <code>
-        private int count(Set destination, Set source) {
-            int result = 0;
-            for (Object o : source) {
-                if (destination.contains(o)) {
-                    result++;
-                }
-            }
-            return result;
-        }
-        </code>
-    </pre>
+<pre>
+  <code>
+  private int count(Set destination, Set source) {
+      int result = 0;
+      for (Object o : source) {
+          if (destination.contains(o)) {
+              result++;
+          }
+      }
+      return result;
+  }
+  </code>
+</pre>
 
-    만약 로타입을 사용하지 않는다면 필요한 타입들에 대한 함수들을 모두 만들어야 할 것이다.            
+만약 로타입을 사용하지 않는다면 필요한 타입들에 대한 함수들을 모두 만들어야 할 것이다.            
 
-    <pre>
-        <code>
-                  private int count(Set<Object> destination, Set<String> source) {
-                      ....
-                      return result;
-                  }
+<pre>
+  <code>
+      private int count(Set<Object> destination, Set<String> source) {
+          ....
+          return result;
+      }
 
-                  private int count(Set<Object> destination, Set<Integer> source) {
-                                              ....
-                                              return result;
-                  }
-         </code>
-   </pre>
+      private int count(Set<Object> destination, Set<Integer> source) {
+                                  ....
+                                  return result;
+      }
+   </code>
+</pre>
 
    이럴 경우에는 비한정적와일드카드타입을 활용해 해결한다.
 
 
-   <pre>
-          <code>
-                           private int count(Set<?> destination, Set<?> source) {
-                               ....
-                               return result;
-                           }
+<pre>
+    <code>
+         private int count(Set<?> destination, Set<?> source) {
+             ....
+             return result;
+         }
 
-          </code>
-   </pre>
-
-   **비한정적 와일드카드 타입**은 어떤 타입이든 상관없이 받을 수 있지만 타입의 안정성을 보장해준다.  
-   또 로타입과 달리 비한정적 와일드카드 타입은 null외에 어떤 원소도 넣을 수 없어 불벽식을 보장한다.  
-   이런 요구사항에서는 **비한정적 와일드카드 타입**을 쓰도록 하자.
+    </code>
+</pre>
 </br>
+</br>
+**비한정적 와일드카드 타입**은 어떤 타입이든 상관없이 받을 수 있지만 타입의 안정성을 보장해준다.  
+또 로타입과 달리 비한정적 와일드카드 타입은 null외에 어떤 원소도 넣을 수 없어 불벽식을 보장한다.  
+이런 요구사항에서는 **비한정적 와일드카드 타입**을 쓰도록 하자.
 </br>
 </br>
 
@@ -135,7 +130,6 @@ List.class,String[].class는 가능, List<String>.class는 불가능!
 **런타임**에는 **제네릭 타입** 정보가 지워진다.  
 그래서 instanceof에서 리스트타입인지 알고싶다면, 로타입이든 비한정적 와일드 타입이든 둘중 하나를 사용해라.
 
-</br>
 </br>
 </br>
 
