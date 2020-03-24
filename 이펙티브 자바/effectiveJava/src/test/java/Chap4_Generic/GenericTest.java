@@ -1,4 +1,4 @@
-package Chat4_Generic.generic;
+package Chap4_Generic;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -8,7 +8,8 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-import static org.assertj.core.api.Assertions.*;
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 public class GenericTest {
 
@@ -70,7 +71,7 @@ public class GenericTest {
         Set<Object> destination = new HashSet<>();
         destination.add("최유성");
 
-        assertThat(count(destination, source)).isEqualTo(1);
+        assertThat(countWithRow(destination, source)).isEqualTo(1);
 
 
         //then
@@ -99,7 +100,7 @@ public class GenericTest {
 
     }
 
-    private int count(Set<?> destination, Set<?> source) {
+    private int countWithWildCard(Set<?> destination, Set<?> source) {
         int result = 0;
         for (Object o : source) {
             if (destination.contains(o)) {
@@ -109,7 +110,7 @@ public class GenericTest {
         return result;
     }
 
-    private int count(Set destination, Set source) {
+    private int countWithRow(Set destination, Set source) {
         int result = 0;
         for (Object o : source) {
             if (destination.contains(o)) {
