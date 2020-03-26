@@ -1,10 +1,14 @@
 ## 아이템 29. 이왕이면 제네릭타입으로 만들라
 
+
 ### 요약
 
 클라이언트가 사용할 때 매번 형변환을 해야하고 그 과정에서 Runtime 에러가 나는 것을 방지하기 위해 이왕이면 제네릭 타입으로 만들자.
 
+
+
 ### Object 배열로 이루어진 스택
+
 
 ```java
 public class ArrayStack {
@@ -31,7 +35,9 @@ public class ArrayStack {
 }
 ```
 
+
 위와 같이 Object 배열을 가진 스택을 사용해보자
+
 
 
 ```java
@@ -55,6 +61,8 @@ public class ArrayStack {
     }
 ```
 
+
+
 클라이언트는 매번 형변환을 해야하고, 형변환이 반드시 성공할 것이라는 보장이 없기 때문에 Runtime Exception 이 나올 수 있다.
 
 
@@ -62,11 +70,15 @@ public class ArrayStack {
 이제 이 스택클래스를 제네릭으로 바꿔보며 제네릭으로 바꿨을 때의 장점을 알아볼 것이다
 
 
+
 먼저, 모든 Object를 제네릭 E로 변경하면 다음과 같이 컴파일 에러가 발생한다.
+
 ![image](https://user-images.githubusercontent.com/47847993/77606329-8659e700-6f5a-11ea-99bc-b1455786b777.png)
 
 
+
 E는 소거되기 때문인데, 컴파일 에러를 해결할 수 있는 방법은 2가지가 있다.
+
 
 
 
@@ -77,6 +89,8 @@ E는 소거되기 때문인데, 컴파일 에러를 해결할 수 있는 방법�
     }
 ```
 
+
+
 이 예제의 경우 E타입만 Push할 수 있기 때문에 자체적으로 형변환이 늘 안전하다는 것을 확신할 수 있다.
 따라서 이렇게 우회하고 @SuppressWarnings 으로 비검사 오류를 숨길 수 있다.
 
@@ -84,8 +98,11 @@ E는 소거되기 때문인데, 컴파일 에러를 해결할 수 있는 방법�
 단점: 힙 오염. 런타임타입: E, 컴파일타임 타입: Object
 
 *cf) 힙오염(https://en.wikipedia.org/wiki/Heap_pollution)*
-아래와 같이 컴파일타임타입, 런타임타입이 달라 Unchecked Warning 과 ClassCastException 이 발생할 가능성이 있는 상황.
-스택 예의 경우 그럴 가능성은 없음
+*아래와 같이 컴파일타임타입, 런타임타입이 달라 Unchecked Warning 과 ClassCastException 이 발생할 가능성이 있는 상황.*
+*스택 예의 경우 그럴 가능성은 없음*
+
+
+
 ```java
 public class HeapPollutionDemo
 {
@@ -109,6 +126,7 @@ public class HeapPollutionDemo
         @SuppressWarnings("unchecked")
         E result = (E) elements[--size];
 ```
+
 
 장점: 힙오염 없음
 단점: 원소를 pop 할 때마다 형변환

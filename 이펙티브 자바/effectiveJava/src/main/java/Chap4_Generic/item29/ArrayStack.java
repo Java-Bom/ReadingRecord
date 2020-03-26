@@ -1,4 +1,4 @@
-package Chap4_Generic;
+package Chap4_Generic.item29;
 
 public class ArrayStack {
     private Object[] elements;
