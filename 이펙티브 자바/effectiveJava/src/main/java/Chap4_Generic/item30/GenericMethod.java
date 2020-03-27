@@ -1,6 +1,8 @@
 package Chap4_Generic.item30;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 public class GenericMethod {
@@ -12,5 +14,9 @@ public class GenericMethod {
         return allList;
     }
 
-
+    public void generic() {
+        List<String> str = Arrays.asList("a", "b", "c");
+        str.sort(Collections.reverseOrder());
+        str.forEach(System.out::println);
+    }
 }
