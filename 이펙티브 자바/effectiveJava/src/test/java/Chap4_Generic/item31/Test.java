@@ -6,7 +6,7 @@ import java.util.List;
 /**
  * Created by jyami on 2020/03/29
  */
-public class SuperExtendsTest {
+public class Test {
     public static <T> T maxSuper(List<? super T> lists){
         return (T) lists.get(0);
     }
