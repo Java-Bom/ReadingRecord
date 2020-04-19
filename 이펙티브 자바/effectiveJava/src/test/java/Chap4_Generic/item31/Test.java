@@ -6,12 +6,12 @@ import java.util.List;
 /**
  * Created by jyami on 2020/03/29
  */
-public class SuperExtendsTest {
-    public static <T> T maxSuper(List<? super T> lists){
+public class Test {
+    public static <T> T maxSuper(List<? super T> lists) {
         return (T) lists.get(0);
     }
 
-    public static <T> T maxExtends(List<? extends T> lists){
+    public static <T> T maxExtends(List<? extends T> lists) {
         return lists.get(0);
     }
 
