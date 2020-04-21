@@ -21,4 +21,10 @@ class GenericMethodTest {
 //        assertThat(GenericMethod.union(list1, list3)).isEqualTo(Arrays.asList(1,2,3,4,5,6)); compileError
     }
 
+    @DisplayName("제네릭싱글턴팩터리는 불변타입이어야 한다")
+    @Test
+    void singleton() {
+
+    }
+
 }
