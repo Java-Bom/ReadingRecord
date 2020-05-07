@@ -1,4 +1,4 @@
-package Chap6_LambdaAndStream.item43;
+package Chap7_LambdaAndStream.item43;
 
 import org.junit.jupiter.api.DisplayName;
 
