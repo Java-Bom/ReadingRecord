@@ -54,7 +54,7 @@ Q. 주어진 스트링리스트의 각 요소 중 고유문자만 뽑아내서 �
         //when
         List<Stream<String>> result = wrongCase.stream()
                 .map(word -> word.split("")) // Stream<String[]>
-                .map(Arrays::stream) // Stream<List<String>, 스트림 시퀀스에 대한 스트림을 각각 변환해준다
+                .map(Arrays::stream) // Stream<List<String>>, 스트림 시퀀스에 대한 스트림을 변환해준다
                 .distinct()
                 .collect(Collectors.toList());//List<Stream<String>>, 그래서 여기에서 Stream List로 수집된다
         
