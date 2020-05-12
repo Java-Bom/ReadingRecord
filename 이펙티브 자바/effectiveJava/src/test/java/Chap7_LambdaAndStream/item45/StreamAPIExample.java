@@ -35,7 +35,7 @@ public class StreamAPIExample {
         //then
     }
 
-    @DisplayName("Map으로 만들기")
+    @DisplayName("AndThen")
     @Test
     void collection_groupingBy() {
         //given

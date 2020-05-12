@@ -79,15 +79,15 @@ public class StreamAndCollectorsExample {
     void groupByBasic() {
         //given
         List<String> dictionary = Arrays.asList("apple", "apartment", "banana", "bigbang", "count", "cleancode");
-        Map<Character, List<String>> expectedDictionary = Map.of('a', Arrays.asList("apple", "apartment"),
-                'b', Arrays.asList("banana", "bigbang"), 'c', Arrays.asList("count", "cleancode"));
+//        Map<Character, List<String>> expectedDictionary = Map.of('a', Arrays.asList("apple", "apartment"),
+//                'b', Arrays.asList("banana", "bigbang"), 'c', Arrays.asList("count", "cleancode"));
 
         //when
         Map<Character, List<String>> collect = dictionary.stream()
                 .collect(groupingBy(word -> word.toLowerCase().charAt(0)));
 
         //then
-        assertThat(collect).isEqualTo(expectedDictionary);
+//        assertThat(collect).isEqualTo(expectedDictionary);
     }
 
     @DisplayName("groupby + downstream")
@@ -95,18 +95,74 @@ public class StreamAndCollectorsExample {
     public void groupByDownStream() {
         //given
         List<String> dictionary = Arrays.asList("apple", "apartment", "banana", "bigbang", "count", "cleancode");
-        Map<Character, Long> expectedDictionary = Map.of('a', 2L,
-                'b', 2L, 'c', 2L);
+//        Map<Character, Long> expectedDictionary = Map.of('a', 2L,
+//                'b', 2L, 'c', 2L);
 
         //when
         Map<Character, Long> collect = dictionary.stream()
                 .collect(groupingBy(word -> word.toLowerCase().charAt(0), counting()));
 
         //then
+//        assertThat(collect).isEqualTo(expectedDictionary);
+    }
+
+    @DisplayName("groupby + 맵팩터")
+    @Test
+    void groupByMapFactory() {
+        //given
+        List<String> dictionary = Arrays.asList("apple", "apartment", "banana", "bigbang", "count", "cleancode");
+        TreeMap<Character, Long> expectedDictionary = new TreeMap<>();
+        expectedDictionary.put('a', 2L);
+        expectedDictionary.put('b', 2L);
+        expectedDictionary.put('c', 2L);
+
+        //when
+        Map<Character, Long> collect = dictionary.stream()
+                .collect(groupingBy(word -> word.toLowerCase().charAt(0), TreeMap::new, counting()));
+
+        //then
         assertThat(collect).isEqualTo(expectedDictionary);
+    }
+
+    @DisplayName("minBy")
+    @Test
+    void minByTest() {
+        //given
+        List<Score> scores = Arrays.asList(new Score("민형", 78), new Score("유성", 12), new Score("민정찬인", 33));
+
+        //when
+        Optional<Score> worstScore = scores.stream()
+                .collect(minBy((a, b) -> -Integer.compare(a.score, b.score)));
+
+        //then
+    }
+
+    @DisplayName("joining Test")
+    @Test
+    void joiningTest() {
+        //given
+        char[] sequence = new char[]{'a', 'b', 'c'};
+
+        //when
+        String collect = Stream.of(sequence)
+                .map(String::new)
+                .collect(joining(","));
+        //then
+        assertThat(collect).isEqualTo("a,b,c");
     }
 
     enum Operation {
         PLUS, MINUS, DIVIDE
+    }
+
+    class Score {
+        String name;
+        int score;
+
+        public Score(String name, int score) {
+            this.name = name;
+            this.score = score;
+        }
+
     }
 }
