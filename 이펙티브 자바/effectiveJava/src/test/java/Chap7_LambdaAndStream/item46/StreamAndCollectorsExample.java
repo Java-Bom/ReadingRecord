@@ -79,15 +79,10 @@ public class StreamAndCollectorsExample {
     void groupByBasic() {
         //given
         List<String> dictionary = Arrays.asList("apple", "apartment", "banana", "bigbang", "count", "cleancode");
-//        Map<Character, List<String>> expectedDictionary = Map.of('a', Arrays.asList("apple", "apartment"),
-//                'b', Arrays.asList("banana", "bigbang"), 'c', Arrays.asList("count", "cleancode"));
 
         //when
         Map<Character, List<String>> collect = dictionary.stream()
                 .collect(groupingBy(word -> word.toLowerCase().charAt(0)));
-
-        //then
-//        assertThat(collect).isEqualTo(expectedDictionary);
     }
 
     @DisplayName("groupby + downstream")
@@ -95,33 +90,21 @@ public class StreamAndCollectorsExample {
     public void groupByDownStream() {
         //given
         List<String> dictionary = Arrays.asList("apple", "apartment", "banana", "bigbang", "count", "cleancode");
-//        Map<Character, Long> expectedDictionary = Map.of('a', 2L,
-//                'b', 2L, 'c', 2L);
 
         //when
         Map<Character, Long> collect = dictionary.stream()
                 .collect(groupingBy(word -> word.toLowerCase().charAt(0), counting()));
-
-        //then
-//        assertThat(collect).isEqualTo(expectedDictionary);
     }
 
-    @DisplayName("groupby + 맵팩터")
+    @DisplayName("groupby + 맵팩터리")
     @Test
     void groupByMapFactory() {
         //given
         List<String> dictionary = Arrays.asList("apple", "apartment", "banana", "bigbang", "count", "cleancode");
-        TreeMap<Character, Long> expectedDictionary = new TreeMap<>();
-        expectedDictionary.put('a', 2L);
-        expectedDictionary.put('b', 2L);
-        expectedDictionary.put('c', 2L);
 
         //when
         Map<Character, Long> collect = dictionary.stream()
                 .collect(groupingBy(word -> word.toLowerCase().charAt(0), TreeMap::new, counting()));
-
-        //then
-        assertThat(collect).isEqualTo(expectedDictionary);
     }
 
     @DisplayName("minBy")
