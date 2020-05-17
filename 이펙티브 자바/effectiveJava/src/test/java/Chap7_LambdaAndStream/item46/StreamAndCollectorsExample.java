@@ -78,16 +78,16 @@ public class StreamAndCollectorsExample {
     @Test
     void groupByBasic() {
         //given
-        List<String> dictionary = Arrays.asList("apple", "apartment", "banana", "bigbang", "count", "cleancode");
-        Map<Character, List<String>> expectedDictionary = Map.of('a', Arrays.asList("apple", "apartment"),
-                'b', Arrays.asList("banana", "bigbang"), 'c', Arrays.asList("count", "cleancode"));
-
-        //when
-        Map<Character, List<String>> collect = dictionary.stream()
-                .collect(groupingBy(word -> word.toLowerCase().charAt(0)));
-
-        //then
-        assertThat(collect).isEqualTo(expectedDictionary);
+//        List<String> dictionary = Arrays.asList("apple", "apartment", "banana", "bigbang", "count", "cleancode");
+//        Map<Character, List<String>> expectedDictionary = Map.of('a', Arrays.asList("apple", "apartment"),
+//                'b', Arrays.asList("banana", "bigbang"), 'c', Arrays.asList("count", "cleancode"));
+//
+//        //when
+//        Map<Character, List<String>> collect = dictionary.stream()
+//                .collect(groupingBy(word -> word.toLowerCase().charAt(0)));
+//
+//        //then
+//        assertThat(collect).isEqualTo(expectedDictionary);
     }
 
     @DisplayName("groupby + downstream")
@@ -95,15 +95,14 @@ public class StreamAndCollectorsExample {
     public void groupByDownStream() {
         //given
         List<String> dictionary = Arrays.asList("apple", "apartment", "banana", "bigbang", "count", "cleancode");
-        Map<Character, Long> expectedDictionary = Map.of('a', 2L,
-                'b', 2L, 'c', 2L);
-
-        //when
-        Map<Character, Long> collect = dictionary.stream()
-                .collect(groupingBy(word -> word.toLowerCase().charAt(0), counting()));
-
-        //then
-        assertThat(collect).isEqualTo(expectedDictionary);
+//        Map<Character, Long> expectedDictionary = Map.of('a', 2L, 'b', 2L, 'c', 2L);
+//
+//        //when
+//        Map<Character, Long> collect = dictionary.stream()
+//                .collect(groupingBy(word -> word.toLowerCase().charAt(0), counting()));
+//
+//        //then
+//        assertThat(collect).isEqualTo(expectedDictionary);
     }
 
     enum Operation {
