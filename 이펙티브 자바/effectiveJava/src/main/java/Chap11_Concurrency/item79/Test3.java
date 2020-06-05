@@ -1,5 +1,6 @@
 package Chap11_Concurrency.item79;
 
+import java.io.Serializable;
 import java.util.HashSet;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;

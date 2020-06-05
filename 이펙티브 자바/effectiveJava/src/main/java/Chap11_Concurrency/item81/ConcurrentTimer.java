@@ -1,5 +1,6 @@
 package Chap11_Concurrency.item81;
 
+import java.io.Serializable;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.Executor;
 
@@ -32,5 +33,6 @@ public class ConcurrentTimer {
 		done.await();      // 모든 작업자가 일을 끝마치기를 기다린다.
 		return System.nanoTime() - startNanos;
 	}
+
 }
 
