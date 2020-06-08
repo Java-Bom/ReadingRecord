@@ -11,16 +11,14 @@ import java.util.List;
 import java.util.concurrent.TimeoutException;
 
 public class LambdaInterfaceTest {
+
     @DisplayName("함수형 인터페이스 상속")
     void name() {
         XY xy = () -> {
-            throw new EOFException();
         };
         XYZ xyz = () -> {
         };
-
         try {
-            //()->void throws EOFException
             xy.m();
         } catch (EOFException e) {
             e.printStackTrace();
@@ -38,13 +36,16 @@ public class LambdaInterfaceTest {
             return strings;
         };
 
-//        E ea = (arg)->arg;
+        /*        E ea = (arg)->arg;*/
+
         E e = new E() {
             @Override
             public List foo(List arg) throws EOFException, SQLTransientException {
                 return null;
             }
         };
+
+//        E a = e::foo
 
         try {
             List<String> strings = d.foo(Collections.singletonList("최유성"));
@@ -56,7 +57,7 @@ public class LambdaInterfaceTest {
     @DisplayName("함수형 인터페이스 상속")
     void name3() {
 
-        //G g = ()->"a";
+//        G g = ()->"a";
 
         G g = new G() {
             @Override
@@ -65,6 +66,7 @@ public class LambdaInterfaceTest {
             }
         };
 
+//        G a = g::m;
     }
 
     interface X {
@@ -79,7 +81,6 @@ public class LambdaInterfaceTest {
     interface Z {
         void m() throws ClassNotFoundException;
     }
-
 
     //-=======================================
 
@@ -120,6 +121,8 @@ public class LambdaInterfaceTest {
         <F extends Exception> String m() throws Exception;
     }
 
+
     interface G extends G1, G2 {
     }
+
 }

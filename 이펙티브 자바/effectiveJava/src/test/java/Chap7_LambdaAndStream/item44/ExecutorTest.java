@@ -12,5 +12,9 @@ public class ExecutorTest {
 
         ExecutorService executorService = Executors.newSingleThreadExecutor();
         executorService.submit((Runnable) System.out::println);
+
+        executorService.submit(() -> 1);
+        executorService.submit(() -> {
+        });
     }
 }

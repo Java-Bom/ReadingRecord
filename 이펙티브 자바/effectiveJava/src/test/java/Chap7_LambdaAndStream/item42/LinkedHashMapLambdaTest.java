@@ -44,4 +44,16 @@ class LinkedHashMapLambdaTest {
         assertThat(localDateUnaryOperator.test(targetDate)).isFalse();
     }
 
+    @Test
+    @DisplayName("로타임은 컴파일 에러가 발생한다.")
+    void name3() {
+        //given
+
+        //when
+//        List list = new ArrayList();
+//        list.add("테스트");
+//        Collections.sort(list,(s1,s2)->Integer.compare(s1.length(),s2.length()));
+        //then
+
+    }
 }
