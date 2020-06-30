@@ -1,4 +1,4 @@
-package Chap6_LambdaAndStream.item42;
+package Chap7_LambdaAndStream.item42_44;
 
 import java.io.Serializable;
 import java.util.Comparator;

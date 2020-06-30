@@ -1,4 +1,4 @@
-package Chap6_LambdaAndStream.item44;
+package Chap7_LambdaAndStream.item44;
 
 import org.junit.jupiter.api.Test;
 
