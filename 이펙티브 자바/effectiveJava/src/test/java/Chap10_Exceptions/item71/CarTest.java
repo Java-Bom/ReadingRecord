@@ -3,6 +3,7 @@ package Chap10_Exceptions.item71;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+import java.util.ConcurrentModificationException;
 import java.util.Optional;
 
 import static org.assertj.core.api.Assertions.assertThat;
