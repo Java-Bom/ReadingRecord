@@ -1,5 +1,6 @@
 package Chap12_Serialization.item90;
 
+import java.io.ObjectInputStream;
 import java.io.Serializable;
 
 public class Foo implements Serializable {
@@ -16,6 +17,10 @@ public class Foo implements Serializable {
 
     private Object writeReplace() {
         return new FooProxy(this);
+    }
+
+    private void readObject(ObjectInputStream in) {
+        throw new UnsupportedOperationException();
     }
 
     static class FooProxy implements Serializable {
