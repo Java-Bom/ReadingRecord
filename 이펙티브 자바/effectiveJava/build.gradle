@@ -1,5 +1,6 @@
 plugins {
     id 'java'
+    id "me.champeau.gradle.jmh" version "0.4.8"
 }
 
 group 'org.example'
@@ -23,9 +24,15 @@ dependencies {
 
     compile group: 'org.json', name: 'json', version: '20190722'
 
-
     // https://mvnrepository.com/artifact/org.apache.commons/commons-collections4
     compile group: 'org.apache.commons', name: 'commons-collections4', version: '4.4'
+
+    jmh 'org.openjdk.jmh:jmh-core:0.9'
+    jmh 'org.openjdk.jmh:jmh-generator-annprocess:0.9'
+}
+
+wrapper {
+    gradleVersion = '5.5'
 }
 
 test {
