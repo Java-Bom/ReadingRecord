@@ -12,7 +12,7 @@ public class KakaoPaySystemFactory extends PaySystemFactory {
 
     @Override
     public PayRequestType getRequestType() {
-        return null;
+        return PayRequestType.KAKAO_PAY_REQUEST;
     }
 
     static class KakaoPaySystemConnection implements PaySystemConnection {
