@@ -19,13 +19,17 @@ class SingletonTest {
 
         UserRepository user1 = context.getBean("defaultUserRepository", UserRepository.class);
         UserRepository user2 = context.getBean("defaultUserRepository", UserRepository.class);
+        // 빈의 스코프: 프로토타입
+        UserRepository user3 = context.getBean("prototypeUserRepository", UserRepository.class);
 
         /*
           컨테이너에 의해 생성되는 오브젝트는 동일성을 만족한다.
           즉, 컨테이너는 빈의 생명주기를 관리함과 동시에 싱글톤 오브젝트를 반환하는 싱글톤 레지스트리로서의 역할을 한다.
+          이때 빈의 스코프는 싱글톤
          */
         assertThat(user1).isEqualTo(user2); // 동등성 (equlasTo), 동일한 정보를 담고있다.
         assertThat(user1 == user2).isTrue(); // 동일성, 완전히 동일한 오브젝트이다
+        assertThat(user1 != user3).isTrue(); // 동일성을 만족하지 않는다.
     }
 
 }

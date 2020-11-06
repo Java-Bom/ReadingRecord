@@ -7,6 +7,7 @@ public class DefaultUserRepository implements UserRepository {
 
     public DefaultUserRepository() {
         log.debug("Constructor");
+        log.info("[DefaultUserRepository] Constructor!");
     }
 
     @Override
