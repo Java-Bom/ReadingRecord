@@ -26,6 +26,10 @@ class ChapterOneSpringTest {
          * 이름이나 타입만으로 원하는 빈을 가져올 수 있다.
          * 애플리케이션 컨텍스트의 장점 3) 빈을 이름으로 검색할 수도, 타입으로 검색할 수도 있다. 애너테이션으로도 (@Service, @Repository, @Component,..)
          */
+        /*
+        스프링 IoC 의 특징은 의존관계 검색이라는 것도 있음.
+        getBean을 통해 직접 Factory에서 검색한다.(중요한건 어떤 클래스를 이용할지 결정하진 않는다는 것)
+         */
         UserRepository userRepository = context.getBean("defaultUserRepository", UserRepository.class);
         UserRepository defaultUserRepository = context.getBean(DefaultUserRepository.class); // 타입으로
 
