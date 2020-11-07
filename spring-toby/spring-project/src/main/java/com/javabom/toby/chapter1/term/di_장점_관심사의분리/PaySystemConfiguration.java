@@ -12,17 +12,7 @@ public class PaySystemConfiguration {
     }
 
     @Bean
-    public PaySystem naverPaySystem() {
-        return new NaverPaySystem();
-    }
-
-    @Bean
-    public LoggingPaySystem loggingNaverPaySystem() {
-        return new LoggingPaySystem(new NaverPaySystem());
-    }
-
-    @Bean
-    public LoggingPaySystem loggingKakaoPaySystem() {
-        return new LoggingPaySystem(new KakaoPaySystem());
+    public PaySystem paySystem() {
+        return new LoggingPaySystem(kakaoPaySystem());
     }
 }
