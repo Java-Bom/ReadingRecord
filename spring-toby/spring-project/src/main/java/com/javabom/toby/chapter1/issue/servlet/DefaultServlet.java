@@ -1,4 +1,4 @@
-package com.javabom.toby.issue.servlet;
+package com.javabom.toby.chapter1.issue.servlet;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
