@@ -18,9 +18,16 @@ class ChapterOneSpringTest {
          */
         // 애너테이션 설정정보(@Configuration) 기반의 애플리케이션 컨텍스트를 가져온다
         ApplicationContext context = new AnnotationConfigApplicationContext(ChapterOneConfiguration.class);
+
         // Constructor logging
         System.out.println("=========================");
-        UserRepository userRepository = context.getBean("defaultUserRepository", DefaultUserRepository.class);
+        /*
+         * 애플리케이션 컨텍스트의 장점 1) 클라이언트는 구체적인 팩토리 클래스를 알 필요가 없다.
+         * 이름이나 타입만으로 원하는 빈을 가져올 수 있다.
+         * 애플리케이션 컨텍스트의 장점 3) 빈을 이름으로 검색할 수도, 타입으로 검색할 수도 있다. 애너테이션으로도 (@Service, @Repository, @Component,..)
+         */
+        UserRepository userRepository = context.getBean("defaultUserRepository", UserRepository.class);
+        UserRepository defaultUserRepository = context.getBean(DefaultUserRepository.class); // 타입으로
 
         userRepository.save(new User());
     }
