@@ -9,20 +9,28 @@ import java.util.Objects;
  * 3. 상속불가, static 필드 -> 객체지향 개념을 적용할 수 없음
  * 4. Mock 인스턴스 생성 불가. 테스트 불가.
  */
-public class SingletonObject {
+public class Calculator {
     private static final Object LOCK = new Object();
-    private static SingletonObject INSTANCE;
+    private static Calculator INSTANCE;
 
-    private SingletonObject() {
+    private Calculator() {
     }
 
-    public static SingletonObject getInstance() {
+    /**
+     * Calculator 객체의 책임은 계산하는 것인데
+     * 책임과 전혀 무관한 싱글톤만을 위한 코드가 들아간다.
+     */
+    public static Calculator getInstance() {
         synchronized (LOCK) {
             if (Objects.isNull(INSTANCE)) {
-                INSTANCE = new SingletonObject();
+                INSTANCE = new Calculator();
             }
         }
 
         return INSTANCE;
+    }
+
+    public int add(int a, int b) {
+        return a + b;
     }
 }
