@@ -29,6 +29,9 @@ class ChapterOneSpringTest {
         /*
         스프링 IoC 의 특징은 의존관계 검색이라는 것도 있음.
         getBean을 통해 직접 Factory에서 검색한다.(중요한건 어떤 클래스를 이용할지 결정하진 않는다는 것)
+
+        #173 DL) 스프링이 제공하는 DL 기능은 getBean을 통해 빈을 검색하는 기능이다. 빈의 이름, 타입등으로 검색할 수 있다. 생성자나 Setter를 사용한
+        의존 주입을 하지 않을 때, 또는 DI 받으려는 객체가 빈이 아닐 때 활용할 수 있다.(DI를 받기 위해서는 자기 자신도 빈이어야 하기 때문)
          */
         UserRepository userRepository = context.getBean("defaultUserRepository", UserRepository.class);
         UserRepository defaultUserRepository = context.getBean(DefaultUserRepository.class); // 타입으로
