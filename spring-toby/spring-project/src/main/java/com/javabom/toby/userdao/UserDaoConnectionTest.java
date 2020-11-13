@@ -7,41 +7,14 @@ import org.springframework.context.support.GenericXmlApplicationContext;
 
 import java.net.URL;
 import java.net.URLClassLoader;
+import java.sql.SQLException;
 
 public class UserDaoConnectionTest {
-    public static void main(String[] args) {
-        ClassLoader cl = ClassLoader.getSystemClassLoader();
-
-        URL[] urls = ((URLClassLoader) cl).getURLs();
-
-        for (URL url : urls) {
-            System.out.println(url.getFile());
-        }
-
+    public static void main(String[] args) throws SQLException {
         /**
          * DaoFactory를 설정정보로 사용하는 방법
          */
         AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(DaoFactory.class);
-        UserDao annotationUserDao = context.getBean("userDao", UserDao.class);
-        System.out.println("---------------");
-        annotationUserDao.printConnectionMaker();
-        /**
-         * GenericXmlApplicationContext
-         */
-
-        /*
-        ApplicationContext genericXmlContext = new GenericXmlApplicationContext("");
-        UserDao genericUserDao = genericXmlContext.getBean("userDao", UserDao.class);
-        System.out.println("---------------");
-        genericUserDao.printConnectionMaker();
-        */
-        /**
-         * ClassPathXmlApplicationContext
-         */
-        ApplicationContext classPathContext = new ClassPathXmlApplicationContext("applicationContext.xml", UserDao.class);
-        UserDao classPathUserDao = classPathContext.getBean("userDao", UserDao.class);
-        System.out.println("---------------");
-        classPathUserDao.printConnectionMaker();
-
+        UserDao annotationUserDao = context.getBean("dataSourceUserDao", UserDao.class);
     }
 }
