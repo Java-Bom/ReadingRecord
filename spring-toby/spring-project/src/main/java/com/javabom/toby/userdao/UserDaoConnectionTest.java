@@ -1,20 +1,20 @@
 package com.javabom.toby.userdao;
 
 import org.springframework.context.ApplicationContext;
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.context.support.GenericXmlApplicationContext;
 
-import java.net.URL;
-import java.net.URLClassLoader;
-import java.sql.SQLException;
-
 public class UserDaoConnectionTest {
-    public static void main(String[] args) throws SQLException {
+    public static void main(String[] args) {
         /**
-         * DaoFactory를 설정정보로 사용하는 방법
+         * xml 설정 정보
          */
-        AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(DaoFactory.class);
-        UserDao annotationUserDao = context.getBean("dataSourceUserDao", UserDao.class);
+        ApplicationContext genericContext = new GenericXmlApplicationContext("applicationContext.xml");
+        UserDao genericDao = genericContext.getBean("userDao", UserDao.class);
+        genericDao.printConnectionMaker();
+
+        ApplicationContext classPathContext = new ClassPathXmlApplicationContext("classPathContext.xml", UserDao.class);
+        UserDao classPathDao = classPathContext.getBean("userDao", UserDao.class);
+        classPathDao.printConnectionMaker();
     }
 }
