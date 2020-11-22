@@ -2,7 +2,7 @@
 name: Effective Java Question
 about: 이펙티브 자바 질문 Issue Template
 title: "[아이템 00] 간단한 제목"
-labels: ''
+labels: 'Effective Java 3'
 assignees: ''
 
 ---
