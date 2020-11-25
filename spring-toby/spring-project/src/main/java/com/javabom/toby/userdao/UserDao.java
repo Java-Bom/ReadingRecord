@@ -37,12 +37,18 @@ public class UserDao {
     }
 
     public void deleteAll() throws SQLException {
+        // 클라이언트(UserDao)가 오브젝트 팩토리의 책임을 지니고 DI(DeleteAllStatement)한다.
+        StatementStrategy statementStrategy = new DeleteAllStatement();
+        jdbcContextWithStatementStrategy(statementStrategy);
+    }
+
+    public void jdbcContextWithStatementStrategy(StatementStrategy statementStrategy) throws SQLException {
         Connection connection = null;
         PreparedStatement ps = null;
 
         try {
             connection = dataSource.getConnection();
-            ps = connection.prepareStatement("DELETE FROM USERS");
+            ps = statementStrategy.makePreparedStatement(connection);
             ps.executeUpdate();
         } catch (SQLException e) {
             throw e;
