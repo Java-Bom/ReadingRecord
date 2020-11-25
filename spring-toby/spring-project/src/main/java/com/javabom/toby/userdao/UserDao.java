@@ -5,7 +5,6 @@ import com.javabom.toby.userdao.connectionmaker.ConnectionMaker;
 import javax.sql.DataSource;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class UserDao {
@@ -34,5 +33,15 @@ public class UserDao {
         /**
          * find user by id;
          */
+    }
+
+    public void deleteAll() throws SQLException {
+        Connection connection = dataSource.getConnection();
+
+        PreparedStatement ps = connection.prepareStatement("DELETE FROM USERS");
+        ps.executeUpdate();
+
+        ps.close();
+        connection.close();
     }
 }
