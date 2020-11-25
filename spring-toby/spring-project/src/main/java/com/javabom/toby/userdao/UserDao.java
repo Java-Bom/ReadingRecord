@@ -25,9 +25,8 @@ public class UserDao {
     }
 
     public void add(User user) throws SQLException {
-        /**
-         * add user
-         */
+        StatementStrategy statementStrategy = new AddStatement(user);
+        jdbcContextWithStatementStrategy(statementStrategy);
     }
 
     public void get(String id) throws SQLException {
