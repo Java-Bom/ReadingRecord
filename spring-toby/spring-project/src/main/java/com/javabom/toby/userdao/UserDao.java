@@ -5,6 +5,7 @@ import com.javabom.toby.userdao.connectionmaker.ConnectionMaker;
 import javax.sql.DataSource;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class UserDao {
@@ -43,6 +44,37 @@ public class UserDao {
             connection = dataSource.getConnection();
             ps = connection.prepareStatement("DELETE FROM USERS");
             ps.executeUpdate();
+        } catch (SQLException e) {
+            throw e;
+        } finally {
+            if (ps != null) {
+                try {
+                    ps.close();
+                } catch (SQLException e) {
+                }
+            }
+            if (connection != null) {
+                try {
+                    connection.close();
+                } catch (SQLException e) {
+                }
+            }
+        }
+    }
+
+    public int getCount() throws SQLException {
+        Connection connection = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+
+        try {
+            connection = dataSource.getConnection();
+
+            ps = connection.prepareStatement("SELECT COUNT(*) FROM USERS");
+
+            rs = ps.executeQuery();
+            rs.next();
+            return rs.getInt(1);
         } catch (SQLException e) {
             throw e;
         } finally {
