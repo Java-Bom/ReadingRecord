@@ -36,12 +36,28 @@ public class UserDao {
     }
 
     public void deleteAll() throws SQLException {
-        Connection connection = dataSource.getConnection();
+        Connection connection = null;
+        PreparedStatement ps = null;
 
-        PreparedStatement ps = connection.prepareStatement("DELETE FROM USERS");
-        ps.executeUpdate();
-
-        ps.close();
-        connection.close();
+        try {
+            connection = dataSource.getConnection();
+            ps = connection.prepareStatement("DELETE FROM USERS");
+            ps.executeUpdate();
+        } catch (SQLException e) {
+            throw e;
+        } finally {
+            if (ps != null) {
+                try {
+                    ps.close();
+                } catch (SQLException e) {
+                }
+            }
+            if (connection != null) {
+                try {
+                    connection.close();
+                } catch (SQLException e) {
+                }
+            }
+        }
     }
 }
