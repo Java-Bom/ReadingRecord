@@ -1,4 +1,4 @@
-package com.javabom.toby.userdao.connectionmaker;
+package com.javabom.toby.user.connectionmaker;
 
 public class TestDBConnectionMaker implements ConnectionMaker {
     public TestDBConnectionMaker() {

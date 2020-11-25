@@ -1,6 +1,6 @@
 package com.javabom.toby.chapter3.term.전략_패턴;
 
-import com.javabom.toby.userdao.connectionmaker.ConnectionMaker;
+import com.javabom.toby.user.connectionmaker.ConnectionMaker;
 
 import javax.sql.DataSource;
 import java.sql.Connection;

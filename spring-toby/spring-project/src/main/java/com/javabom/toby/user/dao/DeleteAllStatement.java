@@ -1,4 +1,4 @@
-package com.javabom.toby.userdao;
+package com.javabom.toby.user.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;

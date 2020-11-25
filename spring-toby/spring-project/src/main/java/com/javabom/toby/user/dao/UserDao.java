@@ -1,6 +1,7 @@
-package com.javabom.toby.userdao;
+package com.javabom.toby.user.dao;
 
-import com.javabom.toby.userdao.connectionmaker.ConnectionMaker;
+import com.javabom.toby.user.User;
+import com.javabom.toby.user.connectionmaker.ConnectionMaker;
 
 import javax.sql.DataSource;
 import java.sql.Connection;
