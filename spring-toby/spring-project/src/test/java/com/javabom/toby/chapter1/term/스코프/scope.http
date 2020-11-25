@@ -1,0 +1,9 @@
+GET http://localhost:8080/request-scope
+
+###
+
+GET http://localhost:8080/session-scope
+
+###
+
+GET http://localhost:8080/session-expire
