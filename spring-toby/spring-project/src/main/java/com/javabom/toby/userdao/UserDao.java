@@ -25,7 +25,17 @@ public class UserDao {
     }
 
     public void add(User user) throws SQLException {
-        StatementStrategy statementStrategy = new AddStatement(user);
+        class AddStatement implements StatementStrategy {
+            @Override
+            public PreparedStatement makePreparedStatement(Connection connection) throws SQLException {
+                PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO USERS ('id', 'name', 'password') VALUES (?, ?, ?)");
+                preparedStatement.setString(1, user.getId());
+                preparedStatement.setString(2, user.getName());
+                preparedStatement.setString(3, user.getPassword());
+                return preparedStatement;
+            }
+        }
+        StatementStrategy statementStrategy = new AddStatement();
         jdbcContextWithStatementStrategy(statementStrategy);
     }
 
