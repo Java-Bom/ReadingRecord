@@ -11,6 +11,10 @@
     </bean>
 
     <bean id="dataSourceUserDao" class="com.javabom.toby.user.dao.UserDao">
+        <property name="jdbcContext" ref="jdbcContext"/>
+    </bean>
+
+    <bean id="jdbcContext" class="com.javabom.toby.user.dao.JdbcContext">
         <property name="dataSource" ref="dataSource"/>
     </bean>
 

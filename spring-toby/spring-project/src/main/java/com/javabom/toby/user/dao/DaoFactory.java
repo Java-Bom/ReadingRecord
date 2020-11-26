@@ -22,12 +22,18 @@ public class DaoFactory {
     public UserDao dataSourceUserDao() {
         UserDao userDao = new UserDao();
         userDao.setDataSource(dataSource());
+        userDao.setJdbcContext(jdbcContext());
         return userDao;
     }
 
     @Bean
     public ConnectionMaker connectionMaker() {
         return new LocalDBConnectionMaker();
+    }
+
+    @Bean
+    public JdbcContext jdbcContext() {
+        return new JdbcContext();
     }
 
     @Bean
