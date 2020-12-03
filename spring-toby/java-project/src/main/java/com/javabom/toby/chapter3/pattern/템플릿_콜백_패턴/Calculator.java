@@ -17,9 +17,11 @@ public class Calculator {
         return lineReadTemplate(in, sumCallBack, 0);
     }
 
+    /*
+        익명클래스로 넣을 때 메모리 저장 시점
+     */
     public Integer calcMultiplay(InputStream in) throws IOException {
-        LineCallback sumCallBack = (line, value) -> value * Integer.parseInt(line);
-        return lineReadTemplate(in, sumCallBack, 1);
+        return lineReadTemplate(in, (line, value) -> value * Integer.parseInt(line), 1);
     }
 
     /**
@@ -33,6 +35,9 @@ public class Calculator {
             Integer res = initVal;
             String line;
             while ((line = br.readLine()) != null) {
+                /*
+                실제로 사용될 때 할당되고 호출이 끝나면 삭제된다. 그때 그떄 새로 할당되는 것을 디버깅을 통해 확인할 수 있다.
+                 */
                 res = lineCallback.doSomethingWithLine(line, res);
             }
             return res;
