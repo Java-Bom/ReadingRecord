@@ -20,7 +20,7 @@ public class Calculator {
     /*
         익명클래스로 넣을 때 메모리 저장 시점
      */
-    public Integer calcMultiplay(InputStream in) throws IOException {
+    public Integer calcMultiply(InputStream in) throws IOException {
         return lineReadTemplate(in, (line, value) -> value * Integer.parseInt(line), 1);
     }
 
