@@ -15,10 +15,10 @@ class CalculatorTest {
     void test() throws IOException {
         Calculator calculator = new Calculator();
         Integer sum = calculator.calcSum(getClass().getClassLoader().getResourceAsStream("chapter3/calcSample.txt"));
-        Integer multiplay = calculator.calcMultiply(getClass().getClassLoader().getResourceAsStream("chapter3/calcSample.txt"));
+        Integer multiply = calculator.calcMultiply(getClass().getClassLoader().getResourceAsStream("chapter3/calcSample.txt"));
 
         assertThat(sum).isEqualTo(6);
-        assertThat(multiplay).isEqualTo(6);
+        assertThat(multiply).isEqualTo(6);
     }
 
 }

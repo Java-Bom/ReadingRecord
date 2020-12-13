@@ -3,10 +3,10 @@
        xmlns="http://www.springframework.org/schema/beans"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean id="localDBConnectionMaker" class="com.javabom.toby.userdao.connectionmaker.LocalDBConnectionMaker"/>
-    <bean id="testDBConnectionMaker" class="com.javabom.toby.userdao.connectionmaker.TestDBConnectionMaker"/>
+    <bean id="localDBConnectionMaker" class="com.javabom.toby.user.connectionmaker.LocalDBConnectionMaker"/>
+    <bean id="testDBConnectionMaker" class="com.javabom.toby.user.connectionmaker.TestDBConnectionMaker"/>
 
-    <bean id="userDao" class="com.javabom.toby.userdao.UserDao">
+    <bean id="userDao" class="com.javabom.toby.user.dao.UserDao">
         <property name="connectionMaker" ref="localDBConnectionMaker"/>
     </bean>
 
@@ -14,7 +14,7 @@
         <property name="dataSource" ref="dataSource"/>
     </bean>
 
-    <bean id="dataSourceUserDao" class="com.javabom.toby.userdao.UserDao">
+    <bean id="dataSourceUserDao" class="com.javabom.toby.user.dao.UserDao">
         <property name="dataSource" ref="dataSource"/>
     </bean>
 

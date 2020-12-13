@@ -1,6 +1,4 @@
-package com.javabom.toby.userdao.connectionmaker;
-
-import java.sql.Connection;
+package com.javabom.toby.user.connectionmaker;
 
 public class LocalDBConnectionMaker implements ConnectionMaker {
     public LocalDBConnectionMaker() {

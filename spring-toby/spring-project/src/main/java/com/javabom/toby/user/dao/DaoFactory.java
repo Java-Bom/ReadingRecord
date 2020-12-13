@@ -1,7 +1,7 @@
-package com.javabom.toby.userdao;
+package com.javabom.toby.user.dao;
 
-import com.javabom.toby.userdao.connectionmaker.ConnectionMaker;
-import com.javabom.toby.userdao.connectionmaker.LocalDBConnectionMaker;
+import com.javabom.toby.user.connectionmaker.ConnectionMaker;
+import com.javabom.toby.user.connectionmaker.LocalDBConnectionMaker;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.jdbc.datasource.SimpleDriverDataSource;
@@ -28,6 +28,11 @@ public class DaoFactory {
     @Bean
     public ConnectionMaker connectionMaker() {
         return new LocalDBConnectionMaker();
+    }
+
+    @Bean
+    public JdbcContext jdbcContext() {
+        return new JdbcContext();
     }
 
     @Bean

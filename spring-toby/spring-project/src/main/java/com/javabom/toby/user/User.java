@@ -1,7 +1,6 @@
-package com.javabom.toby.userdao;
+package com.javabom.toby.user;
 
 import lombok.Getter;
-import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 
 @Getter

@@ -1,5 +1,6 @@
-package com.javabom.toby.userdao;
+package com.javabom.toby.user;
 
+import com.javabom.toby.user.dao.UserDao;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.context.support.GenericXmlApplicationContext;
