@@ -2,15 +2,13 @@ package com.javabom.toby.chapter3.jdbc_템플릿_콜백_패턴;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ContextConfiguration;
 
 @SpringBootTest
 @ContextConfiguration("/applicationContext.xml")
 class TobyUserDaoTest {
-    @Autowired
-    Chapter3UserDao chapter3UserDao;
+    Chapter3UserDao chapter3UserDao = new Chapter3UserDao();
 
     @DisplayName("유저 저장테스트")
     @Test
