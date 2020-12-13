@@ -10,7 +10,7 @@
         <property name="connectionMaker" ref="localDBConnectionMaker"/>
     </bean>
 
-    <bean id="tobyUserDao" class="com.javabom.toby.chapter3.jdbc_템플릿_콜백_패턴.TobyUserDao">
+    <bean id="tobyUserDao" class="com.javabom.toby.chapter3.jdbc_템플릿_콜백_패턴.Chapter3UserDao">
         <property name="dataSource" ref="dataSource"/>
     </bean>
 

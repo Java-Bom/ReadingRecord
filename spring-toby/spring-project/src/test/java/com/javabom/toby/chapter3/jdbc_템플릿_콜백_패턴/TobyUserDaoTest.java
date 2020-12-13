@@ -1,7 +1,7 @@
 package com.javabom.toby.chapter3.jdbc_템플릿_콜백_패턴;
 
+import jdk.nashorn.internal.ir.annotations.Ignore;
 import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ContextConfiguration;
 
@@ -11,7 +11,7 @@ class TobyUserDaoTest {
     Chapter3UserDao chapter3UserDao = new Chapter3UserDao();
 
     @DisplayName("유저 저장테스트")
-    @Test
+    @Ignore
     void add() {
         /*
          * 네거티브 테스트
