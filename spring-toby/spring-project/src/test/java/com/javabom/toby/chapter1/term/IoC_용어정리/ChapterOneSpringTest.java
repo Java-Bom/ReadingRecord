@@ -34,7 +34,6 @@ class ChapterOneSpringTest {
         의존 주입을 하지 않을 때, 또는 DI 받으려는 객체가 빈이 아닐 때 활용할 수 있다.(DI를 받기 위해서는 자기 자신도 빈이어야 하기 때문)
          */
         UserRepository userRepository = context.getBean("defaultUserRepository", UserRepository.class);
-        UserRepository defaultUserRepository = context.getBean(DefaultUserRepository.class); // 타입으로
 
         userRepository.save(new User());
     }
