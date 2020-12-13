@@ -10,7 +10,7 @@ import org.springframework.test.context.ContextConfiguration;
 @ContextConfiguration("/applicationContext.xml")
 class TobyUserDaoTest {
     @Autowired
-    TobyUserDao tobyUserDao;
+    Chapter3UserDao chapter3UserDao;
 
     @DisplayName("유저 저장테스트")
     @Test
@@ -19,8 +19,8 @@ class TobyUserDaoTest {
          * 네거티브 테스트
          * 예외상항에 대한 테스트
          */
-        tobyUserDao.add(null);
-        tobyUserDao.get("unknown");
+        chapter3UserDao.add(null);
+        chapter3UserDao.get("unknown");
     }
 
 }

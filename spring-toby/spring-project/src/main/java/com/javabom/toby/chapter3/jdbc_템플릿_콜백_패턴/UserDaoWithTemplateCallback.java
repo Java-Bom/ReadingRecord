@@ -2,10 +2,10 @@ package com.javabom.toby.chapter3.jdbc_템플릿_콜백_패턴;
 
 import java.sql.SQLException;
 
-public class UserDaoWithTemplataCallback {
+public class UserDaoWithTemplateCallback {
     private final JdbcContext jdbcContext;
 
-    public UserDaoWithTemplataCallback(JdbcContext jdbcContext) {
+    public UserDaoWithTemplateCallback(JdbcContext jdbcContext) {
         this.jdbcContext = jdbcContext;
     }
 

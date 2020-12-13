@@ -5,7 +5,7 @@ import java.sql.Connection;
 import java.sql.SQLException;
 
 public class JdbcContext {
-    private DataSource dataSource;
+    private final DataSource dataSource;
 
     public JdbcContext(DataSource dataSource) {
         this.dataSource = dataSource;
@@ -25,7 +25,6 @@ public class JdbcContext {
 
         } finally {
             connection.close();
-            ;
         }
 
     }
