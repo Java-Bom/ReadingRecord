@@ -1,5 +1,8 @@
-package com.javabom.toby.chapter1.term.aop용어.프록시;
+package com.javabom.toby.chapter6.term.aop용어.프록시;
 
+import com.javabom.toby.chapter6.term.aop용어.프록시.DetailMessage;
+import com.javabom.toby.chapter6.term.aop용어.프록시.Message;
+import com.javabom.toby.chapter6.term.aop용어.프록시.MessageHandler;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 

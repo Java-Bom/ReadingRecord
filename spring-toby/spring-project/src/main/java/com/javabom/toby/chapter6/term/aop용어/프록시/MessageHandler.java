@@ -1,4 +1,4 @@
-package com.javabom.toby.chapter1.term.aop용어.프록시;
+package com.javabom.toby.chapter6.term.aop용어.프록시;
 
 import lombok.RequiredArgsConstructor;
 

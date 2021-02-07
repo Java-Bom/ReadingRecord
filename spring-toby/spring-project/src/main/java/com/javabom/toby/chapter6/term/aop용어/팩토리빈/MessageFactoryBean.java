@@ -1,7 +1,7 @@
-package com.javabom.toby.chapter1.term.aop용어.팩토리빈;
+package com.javabom.toby.chapter6.term.aop용어.팩토리빈;
 
-import com.javabom.toby.chapter1.term.aop용어.프록시.Message;
-import com.javabom.toby.chapter1.term.aop용어.프록시.MessageHandler;
+import com.javabom.toby.chapter6.term.aop용어.프록시.Message;
+import com.javabom.toby.chapter6.term.aop용어.프록시.MessageHandler;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.FactoryBean;
 

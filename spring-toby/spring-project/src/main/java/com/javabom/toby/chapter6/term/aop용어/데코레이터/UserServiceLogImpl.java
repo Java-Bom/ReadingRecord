@@ -1,4 +1,4 @@
-package com.javabom.toby.chapter1.term.aop용어.데코레이터;
+package com.javabom.toby.chapter6.term.aop용어.데코레이터;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
