@@ -7,4 +7,9 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class DetailMessage implements Message{
     private final String text;
+
+    @Override
+    public String getPlainText() {
+        return text;
+    }
 }
