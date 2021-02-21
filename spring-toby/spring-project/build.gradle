@@ -1,9 +1,8 @@
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web'
     implementation 'org.springframework:spring-jdbc'
-
     implementation 'com.h2database:h2:1.4.197'
-
+    compile 'org.aspectj:aspectjweaver:1.8.9'
     testImplementation('org.springframework.boot:spring-boot-starter-test') {
         exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
     }
