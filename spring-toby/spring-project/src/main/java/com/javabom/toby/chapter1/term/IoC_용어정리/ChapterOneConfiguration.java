@@ -52,7 +52,7 @@ public class ChapterOneConfiguration {
 
     #173 IoC/DI) userService빈은 UserRepository 빈을 DI 받는다.(IoC 컨테이너에 의해)
      */
-    @Bean
+//    @Bean
     public UserService userService() {
         /*
         의존관계 주입 특징 3) 사용할 오브젝트에 대한 레퍼런스 -> defaultUserRepository 는 외부에서 주입(생성자, Setter,,)
