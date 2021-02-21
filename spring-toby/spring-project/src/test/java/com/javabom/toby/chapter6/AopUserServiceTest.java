@@ -1,9 +1,11 @@
-package com.javabom.toby.chapter6.term;
+package com.javabom.toby.chapter6;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.aop.aspectj.AspectJExpressionPointcut;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.context.support.AbstractApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -43,4 +45,12 @@ class AopUserServiceTest {
         assertThat(pointcut.getClassFilter().matches(AopUserService.class)).isTrue();
     }
 
+    @Test
+    void advice() {
+        AbstractApplicationContext ctx =
+                new ClassPathXmlApplicationContext("classpath:applicationContext-test.xml");
+
+        AopTestInterface aopUserService = ctx.getBean("aopUserService", AopTestInterface.class);
+        aopUserService.test();
+    }
 }
