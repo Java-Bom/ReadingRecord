@@ -160,3 +160,73 @@ RDB 옵션을 꺼놔도 Slave로 데이터를 전파하는 작업은 fork를 이
    - 새로운 장비가 슬레이브로 등록되었지만 데이터의 업데이트가 가능하도록 하자.
 3. 클라이언트가 새로운 장비를 Master로 인식하도록 설정한다.
 4. 새로운 장비에서 `slaveof no one`을 이용해서 기존 Master와의 연결을 종료한다.
+
+## Redis HA와 Sentinel
+
+Redis 서비스를 운영할 때 기본적으로 Master/Slave 구조를 취한다. 마스터 장애시 슬레이브가 마스터 역할을 할 수 있도록 변경할 수 있게 해야한다. `slave-read-only` 가 `yes` 로 되어있으면 쓰기 요청이 모두 실패한다.
+
+장애 발생시 다음과 같은 흐름으로 작업을 한다.
+
+1. **마스터의 장애를** 정확히 **판별**한다.
+2. **슬레이브를 마스터로** 승격시킨다.
+3. 해당 작업 내용을 **클라이언트에게 통지**한다.
+
+위 작업이 힘들어서 Sentinel 이라는 데몬을 이용해서 처리한다.
+
+Sentinel에서 장애가 발생한 마스터에 접속한 Client를 알 방법이 없기 때문에 해당 알림을 원하는 클라이언트는 Redis Pub/Sub으로 Sentinel에 등록해야 한다.
+
+### Redis Ha와 Sentinel 구성
+
+Redis Master 의 장애 발생 :arrow_right: Sentinel이 슬레이브를 한 대 선택하여 마스터로 승격 :arrow_right: Pub/Sub 으로 변경을 통지 :arrow_right: Client가 Master로 접속 변경
+
+### Sentinel은 어떻게 장애를 판별할까?
+
+기본적으로 마스터/슬레이브에 PING 명령의 응답을 보고 판단하는데 응답이 없다고 바로 장애로 판단하지는 않는다.
+
+`SDOWN`, `ODOWN` 두 가지 상태로 판별한다.
+
+SDOWN: Subjectively Down, Sentinel 하나가 해당 서버를 장애로 인식하는 주관적 상태
+
+ODOWN: Objectively Down, 여러 대의 Sentinel이 해당 서버를 장애로 인식한 객관적 상태
+
+장애를 판단하는 정족수인 Failover 설정을 잘 설정해야하는데, 정족수가 3인데 Sentinel이 2라면 정족수를 채울수 없어서 장애가 발생해도 슬레이브를 마스터로 승격시킬수 없다. 따라서 장비를 홀수로, 장비의 과반수를 정족수로 두는 것이 안전하다.
+
+### Sentinel은 마스터로 승격할 슬레이브를 어떻게 선택할까?
+
+새로운 마스터는 ODOWN 상태일 때 선출한다. 선출 플로우는 다음과 같다.
+
+1. SDOWN, ODOWN, DISCONNECT 슬레이브 제외
+2. 'last_avail_time' < 'info_validity_time' 제외
+3. 'info_refresh' < 'info_validity_time' 제외
+4. 'master_link_down_time' > 'max_master_down_time' 제외
+5. 후보 중 slave_priority가 높은 순, runid가 큰 순으로 선택
+
+### Sentinel 설정과 사용
+
+```
+# sentinel.conf
+
+	sentinel moniter resque 127.0.0.1 2001 2					# -- 1
+	sentinel down-after-milliseconds resque 3000			# -- 2
+	sentinel failover-timeout resque 900000						# -- 3
+	sentinel can-failover resque yes									# -- 4
+sentinel parallel-syncs resque 1										# -- 5
+```
+
+1. sentinel monitor <클러스터 명> <마스터 IP> <마스터 Port> <정족수>
+   - 모니터링 할 마스터 서버의 주소, 클러스터 이름, 정족수
+2. sentinel down-after-milliseconds <클러스터 명> <시간 milliseconds>
+   - 다운으로 인식하는 시간
+3. sentinel failover-timeout <클러스터 명> <시간 milliseconds>
+   - Failover시 사용되는 timeout
+4. sentinel can-failover rescue yes
+   - Failover 여부
+5. sentinel parallel-syncs <클러스터 명> <sync 할 slave 숫자>
+   - 새로운 마스터 승격 후 몇 개의 슬레이브가 싱크해야 클라이언트에게 알려줄 것인지
+
+```
++switch-master
+<클러스터 명> <이전 마스터 IP> <Port> <새 마스터 IP> <Port>
+```
+
+위 메세지를 받은 클라이언트는 새 마스터 IP와 Port를 이용해서 서버 목록을 바꿔서 다시 접속하면 Failover가 완료된다.
