@@ -1,4 +1,4 @@
-package com.javabom.toby.chapter6;
+package com.javabom.toby.chapter6.term;
 
 import com.javabom.toby.chapter6.term.AopTestInterface;
 import com.javabom.toby.chapter6.term.AopUserService;
