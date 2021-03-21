@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+        targetNamespace="http://www.epril.com/sqlmap"
+        xmlns:tns="http://www.epril.com/sqlmap"
+        elementFormDefault="qualified">
+    <element name="sqlmap">
+        <complexType>
+            <sequence>
+                <element name="sql" maxOccurs="unbounded" type="tns:sqlType"></element>
+            </sequence>
+        </complexType>
+    </element>
+    <complexType name="sqlType">
+        <simpleContent>
+            <extension base="string">
+                <attribute name="key" use="required" type="string"/>
+            </extension>
+        </simpleContent>
+    </complexType>
+</schema>
+<!-- 명령어 : xjc -p chapter7.com.javabom.toby.chapter7.xsd sqlmap.com.javabom.toby.chapter7.xsd -d .-->

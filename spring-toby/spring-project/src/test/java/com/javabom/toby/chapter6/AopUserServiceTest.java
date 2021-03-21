@@ -1,5 +1,7 @@
 package com.javabom.toby.chapter6;
 
+import com.javabom.toby.chapter6.term.AopTestInterface;
+import com.javabom.toby.chapter6.term.AopUserService;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.aop.aspectj.AspectJExpressionPointcut;

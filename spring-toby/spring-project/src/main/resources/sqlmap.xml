@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sqlmap xmlns="http://www.epril.com/sqlmap"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.epril.com/sqlmap ../../main/resources/sqlmap.xsd ">
+    <sql key="add">insert</sql>
+    <sql key="get">select</sql>
+    <sql key="delete">delete</sql>
+</sqlmap>
