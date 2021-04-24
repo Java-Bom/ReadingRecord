@@ -1,5 +1,6 @@
 package com.javabom.toby.chapter7.oxm;
 
+import com.javabom.toby.chapter7.resource.BookResourceLoader;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +20,9 @@ class OxmConfigTest {
     @Autowired
     private Unmarshaller unmarshaller;
 
+    @Autowired
+    private BookResourceLoader bookResourceLoader;
+
     @Test
     @DisplayName("jaxb xml 컨버팅 테스트")
     void name() throws IOException {
@@ -27,6 +31,15 @@ class OxmConfigTest {
         Source xmlSource = new StreamSource(stream);
         //when
         Book book= (Book) unmarshaller.unmarshal(xmlSource);
+
+        //then
+        assertThat(book.getId()).isEqualTo(1L);
+        assertThat(book.getName()).isEqualTo("Book1");
+    }
+
+    @Test
+    void resourceTest()throws IOException {
+        Book book = bookResourceLoader.load();
 
         //then
         assertThat(book.getId()).isEqualTo(1L);
