@@ -11,6 +11,8 @@
 
 - 해결하지 못한 이슈는 stuck 처리한다. 
 
+### 블로그
+[자바봄이 이펙티브 자바를 읽는 방법](https://javabom.tistory.com/70)
 
 ### 기록
 - [완][객체지향의 사실과 오해 - 조영호](https://github.com/Java-Bom/ReadingRecord/tree/master/%EA%B0%9D%EC%B2%B4%EC%A7%80%ED%96%A5%EC%9D%98_%EC%82%AC%EC%8B%A4%EA%B3%BC_%EC%98%A4%ED%95%B4)
