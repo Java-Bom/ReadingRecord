@@ -18,3 +18,4 @@
 - [완][객체지향의 사실과 오해 - 조영호](https://github.com/Java-Bom/ReadingRecord/tree/master/%EA%B0%9D%EC%B2%B4%EC%A7%80%ED%96%A5%EC%9D%98_%EC%82%AC%EC%8B%A4%EA%B3%BC_%EC%98%A4%ED%95%B4)
 - [완][이펙티브 자바 3판 - 조슈아블로크](https://github.com/Java-Bom/ReadingRecord/projects/1)
 - **~ing** [토비의 스프링 - 이일민](https://github.com/Java-Bom/ReadingRecord/projects/2)
+- **~ing** [쿠버네티스 입문 - 정원천, 공용준, 정경록, 홍석용](https://github.com/Java-Bom/ReadingRecord/projects/3)
