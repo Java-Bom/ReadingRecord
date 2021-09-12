@@ -1,5 +1,5 @@
 ---
-name:  The Definitive Guide to Spring Batch
+name:  The Definitive Guide to Spring Batch Question
 about: 스프링 배치 완벽 가이드 2/e Issue Template
 title: "[목차] 간단한 제목"
 labels: ' The Definitive Guide to Spring Batch'
