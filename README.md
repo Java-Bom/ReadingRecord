@@ -18,4 +18,5 @@
 - [완][객체지향의 사실과 오해 - 조영호](https://github.com/Java-Bom/ReadingRecord/tree/master/%EA%B0%9D%EC%B2%B4%EC%A7%80%ED%96%A5%EC%9D%98_%EC%82%AC%EC%8B%A4%EA%B3%BC_%EC%98%A4%ED%95%B4) ❓[질문하기](https://github.com/Java-Bom/ReadingRecord/issues/new?assignees=&labels=The+Essence+of+Object-Orientation&template=the-essence-of-object-orientation.md&title=%5B%EB%AA%A9%EC%B0%A8%5D+%EA%B0%84%EB%8B%A8%ED%95%9C+%EC%A0%9C%EB%AA%A9)
 - [완][이펙티브 자바 3판 - 조슈아블로크](https://github.com/Java-Bom/ReadingRecord/projects/1) ❓[질문하기](https://github.com/Java-Bom/ReadingRecord/issues/new?assignees=&labels=Effective+Java+3&template=effective-java-question.md&title=%5B%EC%95%84%EC%9D%B4%ED%85%9C+00%5D+%EA%B0%84%EB%8B%A8%ED%95%9C+%EC%A0%9C%EB%AA%A9)
 - [완][토비의 스프링 - 이일민](https://github.com/Java-Bom/ReadingRecord/projects/2) ❓[질문하기](https://github.com/Java-Bom/ReadingRecord/issues/new?assignees=&labels=Spring+of+Toby+3.1&template=spring-of-toby-question.md&title=%5B0.0+~+0.0%5D+%EA%B0%84%EB%8B%A8%ED%95%9C+%EC%A0%9C%EB%AA%A9)
-- **~ing** [쿠버네티스 입문 - 정원천, 공용준, 정경록, 홍석용](https://github.com/Java-Bom/ReadingRecord/projects/3)
+- [완] [쿠버네티스 입문 - 정원천, 공용준, 정경록, 홍석용](https://github.com/Java-Bom/ReadingRecord/projects/3)
+- [~ing] [스프링 배치 완벽 가이드 2/e](https://github.com/Java-Bom/ReadingRecord/projects/4)
