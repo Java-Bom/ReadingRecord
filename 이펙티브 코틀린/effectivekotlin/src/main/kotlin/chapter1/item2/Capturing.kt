@@ -36,8 +36,10 @@ private fun dirtyScopeSequence() {
         while (true) {
             prime = numbers.first()
             yield(prime)
-            numbers = numbers.drop(1)
+            numbers = numbers
+                .drop(1)
                 .filter {
+                    print("$it ")
                     it % prime != 0
                 }
         }
